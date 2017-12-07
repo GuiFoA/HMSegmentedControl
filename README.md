@@ -6,7 +6,7 @@ HMSegmentedControl
 [![Pod Platform](http://img.shields.io/cocoapods/p/HMSegmentedControl.svg?style=flat)](http://cocoadocs.org/docsets/HMSegmentedControl)
 [![Pod License](http://img.shields.io/cocoapods/l/HMSegmentedControl.svg?style=flat)](http://opensource.org/licenses/MIT)
 
-A drop-in replacement for UISegmentedControl mimicking the style of the segmented control used in Google Currents and various other Google products.
+HMSegmentedControl 中文注释翻译版，添加控制，HMSegmentedControlSelectionStyleTextWidthStripe 的时候指示器的长度。
 
 # Features
 - Supports both text and images
