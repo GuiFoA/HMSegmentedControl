@@ -202,7 +202,7 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlImagePosition) {
 @property (nonatomic, assign) CGFloat borderWidth;
 
 /**
- Default is YES. Set to NO to deny scrolling by dragging the scrollView by the user.
+ 设置是否准许用户拖拽
  */
 @property(nonatomic, getter = isUserDraggable) BOOL userDraggable;
 
@@ -216,12 +216,13 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlImagePosition) {
 @property (nonatomic, getter=shouldStretchSegmentsToScreenSize) BOOL stretchSegmentsToScreenSize;
 
 /**
- Index of the currently selected segment.
+ 选中 segment 的 index
  */
 @property (nonatomic, assign) NSInteger selectedSegmentIndex;
 
 /**
- Height of the selection indicator. Only effective when `HMSegmentedControlSelectionStyle` is either `HMSegmentedControlSelectionStyleTextWidthStripe` or `HMSegmentedControlSelectionStyleFullWidthStripe`.
+ 指示器的高度
+ Only effective when `HMSegmentedControlSelectionStyle` is either `HMSegmentedControlSelectionStyleTextWidthStripe` or `HMSegmentedControlSelectionStyleFullWidthStripe`.
  
  Default is 5.0
  */
@@ -241,6 +242,9 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlImagePosition) {
             right: 0.0f
  */
 @property (nonatomic, readwrite) UIEdgeInsets selectionIndicatorEdgeInsets;
+
+/// 指定指示器左右两边比文字多出或减少的距离   只对 HMSegmentedControlTypeText 设置有效 默认0.000
+@property(nonatomic, assign) CGFloat extendedIndicatorLength;
 
 /**
  Inset left and right edges of segments.

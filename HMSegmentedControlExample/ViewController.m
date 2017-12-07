@@ -39,9 +39,9 @@
     HMSegmentedControl *segmentedControl1 = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"One", @"Two", @"Three", @"Four", @"Five", @"Six", @"Seven", @"Eight"]];
     segmentedControl1.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
     segmentedControl1.frame = CGRectMake(0, 60, viewWidth, 40);
-    segmentedControl1.segmentEdgeInset = UIEdgeInsetsMake(0, 10, 0, 10);
-    segmentedControl1.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
-    segmentedControl1.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationNone;
+//    segmentedControl1.segmentEdgeInset = UIEdgeInsetsMake(0, 20, 0, 20);
+    segmentedControl1.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;
+    segmentedControl1.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
     segmentedControl1.verticalDividerEnabled = YES;
     segmentedControl1.verticalDividerColor = [UIColor redColor];
     segmentedControl1.verticalDividerWidth = 1.0f;
@@ -92,6 +92,7 @@
     segmentedControl3.selectedSegmentIndex = HMSegmentedControlNoSegment;
     segmentedControl3.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
     segmentedControl3.shouldAnimateUserSelection = NO;
+    segmentedControl3.selectionIndicatorEdgeInsets= UIEdgeInsetsMake(0, -10, 0, 10);
     segmentedControl3.tag = 2;
     [self.view addSubview:segmentedControl3];
     
