@@ -7,6 +7,8 @@ HMSegmentedControl
 [![Pod License](http://img.shields.io/cocoapods/l/HMSegmentedControl.svg?style=flat)](http://opensource.org/licenses/MIT)
 
 HMSegmentedControl 中文注释翻译版，添加控制，HMSegmentedControlSelectionStyleTextWidthStripe 的时候指示器的长度。
+添加字段控制指示器和文字的宽度差
+添加字段控制指示器是否显示圆角
 
 # Features
 - Supports both text and images
