@@ -228,6 +228,11 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlImagePosition) {
  */
 @property (nonatomic, readwrite) CGFloat selectionIndicatorHeight;
 
+///指示器圆角
+@property (nonatomic, assign) BOOL indicatorCorner;
+///box 圆角
+@property (nonatomic, assign) BOOL boxCorner;
+
 /**
  Edge insets for the selection indicator.
  NOTE: This does not affect the bounding box of HMSegmentedControlSelectionStyleBox

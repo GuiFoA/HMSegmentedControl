@@ -273,9 +273,24 @@
     self.selectionIndicatorArrowLayer.backgroundColor = self.selectionIndicatorColor.CGColor;
     
     self.selectionIndicatorStripLayer.backgroundColor = self.selectionIndicatorColor.CGColor;
-    
+    if (_boxCorner) {
+        self.selectionIndicatorStripLayer.cornerRadius = self.selectionIndicatorHeight/2.f;
+        self.selectionIndicatorStripLayer.masksToBounds = YES;
+    } else {
+        self.selectionIndicatorStripLayer.cornerRadius =0 ;
+        self.selectionIndicatorStripLayer.masksToBounds = NO;
+    }
+
     self.selectionIndicatorBoxLayer.backgroundColor = self.selectionIndicatorBoxColor.CGColor;
     self.selectionIndicatorBoxLayer.borderColor = self.selectionIndicatorBoxColor.CGColor;
+    
+    if (_boxCorner) {
+        self.selectionIndicatorBoxLayer.cornerRadius = self.frame.size.height/2.f;
+        self.selectionIndicatorBoxLayer.masksToBounds = YES;
+    } else {
+        self.selectionIndicatorBoxLayer.cornerRadius = 0;
+        self.selectionIndicatorBoxLayer.masksToBounds = NO;
+    }
     
     // Remove all sublayers to avoid drawing images over existing ones
     self.scrollView.layer.sublayers = nil;
