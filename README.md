@@ -9,6 +9,7 @@ HMSegmentedControl
 HMSegmentedControl 中文注释翻译版，添加控制，HMSegmentedControlSelectionStyleTextWidthStripe 的时候指示器的长度。
 添加字段控制指示器和文字的宽度差
 添加字段控制指示器是否显示圆角
+添加字段控制box的edgeInsert
 
 # Features
 - Supports both text and images
@@ -61,3 +62,5 @@ If this code was helpful, I would love to hear from you.
 
 [@HeshamMegid](http://twitter.com/HeshamMegid)   
 [http://hesh.am](http://hesh.am)
+
+
