@@ -73,6 +73,10 @@
     segmentedControl2.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
     segmentedControl2.selectionStyle = HMSegmentedControlSelectionStyleBox;
     segmentedControl2.segmentWidthStyle = HMSegmentedControlSegmentWidthStyleDynamic;
+    segmentedControl2.boxCorner = YES;
+    segmentedControl2.boxEdgeInset = UIEdgeInsetsMake(10, 0, 10, 10);
+//    segmentedControl2.enlargeEdgeInset = UIEdgeInsetsMake(20, 0, 20, 0);
+//    segmentedControl2.segmentEdgeInset = UIEdgeInsetsMake(10, 10, 10, 10);
     [segmentedControl2 addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:segmentedControl2];
     

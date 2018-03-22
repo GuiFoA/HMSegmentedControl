@@ -260,6 +260,8 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlImagePosition) {
 
 @property (nonatomic, readwrite) UIEdgeInsets enlargeEdgeInset;
 
+@property (nonatomic, readwrite) UIEdgeInsets boxEdgeInset;
+
 /**
  用户选择时是否开启动画
  

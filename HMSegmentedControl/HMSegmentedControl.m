@@ -285,7 +285,7 @@
     self.selectionIndicatorBoxLayer.borderColor = self.selectionIndicatorBoxColor.CGColor;
     
     if (_boxCorner) {
-        self.selectionIndicatorBoxLayer.cornerRadius = self.frame.size.height/2.f;
+        self.selectionIndicatorBoxLayer.cornerRadius = (self.frame.size.height - (_boxEdgeInset.top + _boxEdgeInset.bottom))/2.f;
         self.selectionIndicatorBoxLayer.masksToBounds = YES;
     } else {
         self.selectionIndicatorBoxLayer.cornerRadius = 0;
@@ -518,7 +518,10 @@
                 [self.scrollView.layer addSublayer:self.selectionIndicatorStripLayer];
                 
                 if (self.selectionStyle == HMSegmentedControlSelectionStyleBox && !self.selectionIndicatorBoxLayer.superlayer) {
-                    self.selectionIndicatorBoxLayer.frame = [self frameForFillerSelectionIndicator];
+                    CGRect boxFrame = [self frameForFillerSelectionIndicator];
+                    boxFrame.size.height -= (_boxEdgeInset.top + _boxEdgeInset.bottom);
+                    boxFrame.origin.y += (_boxEdgeInset.top + _boxEdgeInset.bottom)/2.f;
+                    self.selectionIndicatorBoxLayer.frame = boxFrame;
                     [self.scrollView.layer insertSublayer:self.selectionIndicatorBoxLayer atIndex:0];
                 }
             }
