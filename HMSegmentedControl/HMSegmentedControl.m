@@ -273,7 +273,7 @@
     self.selectionIndicatorArrowLayer.backgroundColor = self.selectionIndicatorColor.CGColor;
     
     self.selectionIndicatorStripLayer.backgroundColor = self.selectionIndicatorColor.CGColor;
-    if (_boxCorner) {
+    if (_indicatorCorner) {
         self.selectionIndicatorStripLayer.cornerRadius = self.selectionIndicatorHeight/2.f;
         self.selectionIndicatorStripLayer.masksToBounds = YES;
     } else {
@@ -804,10 +804,15 @@
             sectionsCount = [self.sectionTitles count];
         }
         
-        if (segment != self.selectedSegmentIndex && segment < sectionsCount) {
-            // Check if we have to do anything with the touch event
+        if (_repetClick) {
             if (self.isTouchEnabled)
                 [self setSelectedSegmentIndex:segment animated:self.shouldAnimateUserSelection notify:YES];
+        } else {
+            if (segment != self.selectedSegmentIndex && segment < sectionsCount) {
+                // Check if we have to do anything with the touch event
+                if (self.isTouchEnabled)
+                    [self setSelectedSegmentIndex:segment animated:self.shouldAnimateUserSelection notify:YES];
+            }
         }
     }
 }

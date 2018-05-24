@@ -76,6 +76,8 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlImagePosition) {
 ///点击回调函数 替代 addTarget:action:forControlEvents:
 @property (nonatomic, copy) IndexChangeBlock indexChangeBlock;
 
+@property (nonatomic, assign) BOOL repetClick;
+
 /**
  用于自定义标题样式
  根据现有title 返回一个NSAttributedString
