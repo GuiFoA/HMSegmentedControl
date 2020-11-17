@@ -1,59 +1,81 @@
 HMSegmentedControl
-===
 
-[![CocoaPods](https://img.shields.io/cocoapods/dt/HMSegmentedControl.svg?maxAge=2592000)](https://cocoapods.org/pods/HMSegmentedControl)
 [![Pod Version](http://img.shields.io/cocoapods/v/HMSegmentedControl.svg?style=flat)](http://cocoadocs.org/docsets/HMSegmentedControl)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Pod Platform](http://img.shields.io/cocoapods/p/HMSegmentedControl.svg?style=flat)](http://cocoadocs.org/docsets/HMSegmentedControl)
 [![Pod License](http://img.shields.io/cocoapods/l/HMSegmentedControl.svg?style=flat)](http://opensource.org/licenses/MIT)
 
+<<<<<<< HEAD
 HMSegmentedControl 中文注释翻译版，添加控制，HMSegmentedControlSelectionStyleTextWidthStripe 的时候指示器的长度。
 添加字段控制指示器和文字的宽度差
 添加字段控制指示器是否显示圆角
 添加字段控制box的edgeInsert
 
+<div align="center">
+<img src="https://raw.githubusercontent.com/HeshamMegid/HMSegmentedControl/master/Screenshots/6.PNG" width="70%">
+<br /><br />
+<img src="https://raw.githubusercontent.com/HeshamMegid/HMSegmentedControl/master/Screenshots/8.jpeg" width="70%">
+<br /><br />
+<img src="https://raw.githubusercontent.com/HeshamMegid/HMSegmentedControl/master/Screenshots/7.PNG" width="70%">
+</div>
+
+
 # Features
-- Supports both text and images
-- Support horizontal scrolling
-- Supports advanced title styling with text attributes for font, color, kerning, shadow, etc.
-- Supports selection indicator both on top and bottom
-- Supports blocks
-- Works with ARC and iOS >= 7
+
+- 📸 Supports both text and images
+- ↕️ Multiple sizing and selection styles
+- 📜 Horizontal scrolling for an infinite number of segments
+- ⚙️ Advanced title styling with text attributes for font, color, kerning, shadow, etc
+- 🖥 Compatible with both Swift and Objective-C
+- 📱 Updated for Xcode 11, iOS 13 and Swift 5. Supports all the way back to iOS 7!
 
 # Installation
-
-### CocoaPods
-The easiest way of installing HMSegmentedControl is via [CocoaPods](http://cocoapods.org/). 
 
 ```
 pod 'HMSegmentedControl'
 ```
 
-### Old-fashioned way
-
-- Add `HMSegmentedControl.h` and `HMSegmentedControl.m` to your project.
-- Add `QuartzCore.framework` to your linked frameworks.
-- `#import "HMSegmentedControl.h"` where you want to add the control.
+Installation via Carthage is also supported..
 
 # Usage
 
 The code below will create a segmented control with the default looks:
 
-```  objective-c
-HMSegmentedControl *segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"One", @"Two", @"Three"]];
-segmentedControl.frame = CGRectMake(10, 10, 300, 60);
-[segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
-[self.view addSubview:segmentedControl];
+```swift
+let segmentedControl = HMSegmentedControl(sectionTitles: [
+    "Trending",
+    "News",
+    "Library"
+])
+
+segmentedControl.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+segmentedControl.addTarget(self, action: #selector(segmentedControlChangedValue(segmentedControl:)), for: .valueChanged)
+view.addSubview(segmentedControl)
 ```
 
-Included is a demo project showing how to fully customise the control.
+Included is a demo project showing how to fully customize HMSegmentedControl.
 
-![HMSegmentedControl](https://raw.githubusercontent.com/HeshamMegid/HMSegmentedControl/master/Screenshot.png)
+# Possible Styles
 
-# Apps using HMSegmentedControl
+<div align="center">
+<img src="https://raw.githubusercontent.com/HeshamMegid/HMSegmentedControl/master/Screenshots/1.png" width="70%">
+<br /><br />
+<img src="https://raw.githubusercontent.com/HeshamMegid/HMSegmentedControl/master/Screenshots/2.png" width="70%">
+<br /><br />
+<img src="https://raw.githubusercontent.com/HeshamMegid/HMSegmentedControl/master/Screenshots/3.png" width="70%">
+<br /><br />
+<img src="https://raw.githubusercontent.com/HeshamMegid/HMSegmentedControl/master/Screenshots/4.png" width="70%">
+<br /><br />
+<img src="https://raw.githubusercontent.com/HeshamMegid/HMSegmentedControl/master/Screenshots/5.png" width="70%">
+</div>
+
+# Apps Using HMSegmentedControl
 
 If you are using HMSegmentedControl in your app or know of an app that uses it, please add it to [this list](https://github.com/HeshamMegid/HMSegmentedControl/wiki/Apps-using-HMSegmentedControl).
+
+# Need Help?
   
+If you need help with HMSegmentedControl, or with iOS/Swift development in general, check out [swiftmentor.io](https://swiftmentor.io)
 
 # License
 

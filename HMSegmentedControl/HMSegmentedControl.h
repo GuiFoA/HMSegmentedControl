@@ -10,8 +10,10 @@
 
 @class HMSegmentedControl;
 
-typedef void (^IndexChangeBlock)(NSInteger index);
-typedef NSAttributedString *(^HMTitleFormatterBlock)(HMSegmentedControl *segmentedControl, NSString *title, NSUInteger index, BOOL selected);
+NS_ASSUME_NONNULL_BEGIN
+
+typedef void (^IndexChangeBlock)(NSUInteger index);
+typedef NSAttributedString *_Nonnull(^HMTitleFormatterBlock)(HMSegmentedControl *segmentedControl, NSString *title, NSUInteger index, BOOL selected);
 
 ///指示器的类型
 typedef NS_ENUM(NSInteger, HMSegmentedControlSelectionStyle) {
@@ -23,8 +25,10 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlSelectionStyle) {
 
 ///指示器的位置
 typedef NS_ENUM(NSInteger, HMSegmentedControlSelectionIndicatorLocation) {
-    HMSegmentedControlSelectionIndicatorLocationUp,
-    HMSegmentedControlSelectionIndicatorLocationDown,
+    HMSegmentedControlSelectionIndicatorLocationTop,
+    HMSegmentedControlSelectionIndicatorLocationBottom,
+    HMSegmentedControlSelectionIndicatorLocationUp __deprecated_enum_msg("Use HMSegmentedControlSelectionIndicatorLocationTop.") = HMSegmentedControlSelectionIndicatorLocationTop,
+    HMSegmentedControlSelectionIndicatorLocationDown __deprecated_enum_msg("Use HMSegmentedControlSelectionIndicatorLocationBottom.") = HMSegmentedControlSelectionIndicatorLocationBottom,
 	HMSegmentedControlSelectionIndicatorLocationNone ///< 不显示指示器
 };
 
@@ -40,10 +44,9 @@ typedef NS_OPTIONS(NSInteger, HMSegmentedControlBorderType) {
     HMSegmentedControlBorderTypeBottom = (1 << 2),
     HMSegmentedControlBorderTypeRight = (1 << 3)
 };
-//数值为 -1 表示不选中任意 segment
-enum {
-    HMSegmentedControlNoSegment = -1   // Segment index for no selected segment
-};
+
+/// 表示不选中任意 segment
+FOUNDATION_EXPORT NSUInteger HMSegmentedControlNoSegment;
 
 /**
  Segment 类型
@@ -69,12 +72,16 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlImagePosition) {
 
 @interface HMSegmentedControl : UIControl
 
-@property (nonatomic, strong) NSArray<NSString *> *sectionTitles;
-@property (nonatomic, strong) NSArray<UIImage *> *sectionImages;
-@property (nonatomic, strong) NSArray<UIImage *> *sectionSelectedImages;
+@property (nonatomic, strong, nullable) NSArray<NSString *> *sectionTitles;
+@property (nonatomic, strong, nullable) NSArray<UIImage *> *sectionImages;
+@property (nonatomic, strong, nullable) NSArray<UIImage *> *sectionSelectedImages;
 
-///点击回调函数 替代 addTarget:action:forControlEvents:
-@property (nonatomic, copy) IndexChangeBlock indexChangeBlock;
+/**
+ 点击回调函数
+ 
+ 也可以用 `addTarget:action:forControlEvents:`
+ */
+@property (nonatomic, copy, nullable) IndexChangeBlock indexChangeBlock;
 
 @property (nonatomic, assign) BOOL repetClick;
 
@@ -82,7 +89,7 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlImagePosition) {
  用于自定义标题样式
  根据现有title 返回一个NSAttributedString
  */
-@property (nonatomic, copy) HMTitleFormatterBlock titleFormatter;
+@property (nonatomic, copy, nullable) HMTitleFormatterBlock titleFormatter;
 
 /**
  设置未选中状态的文本样式
@@ -220,7 +227,7 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlImagePosition) {
 /**
  选中 segment 的 index
  */
-@property (nonatomic, assign) NSInteger selectedSegmentIndex;
+@property (nonatomic, assign) NSUInteger selectedSegmentIndex;
 
 /**
  指示器的高度
@@ -271,11 +278,14 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlImagePosition) {
  */
 @property (nonatomic) BOOL shouldAnimateUserSelection;
 
-- (id)initWithSectionTitles:(NSArray<NSString *> *)sectiontitles;
-- (id)initWithSectionImages:(NSArray<UIImage *> *)sectionImages sectionSelectedImages:(NSArray<UIImage *> *)sectionSelectedImages;
+- (instancetype)initWithSectionTitles:(NSArray<NSString *> *)sectiontitles;
+- (instancetype)initWithSectionImages:(NSArray<UIImage *> *)sectionImages sectionSelectedImages:(NSArray<UIImage *> *)sectionSelectedImages;
 - (instancetype)initWithSectionImages:(NSArray<UIImage *> *)sectionImages sectionSelectedImages:(NSArray<UIImage *> *)sectionSelectedImages titlesForSections:(NSArray<NSString *> *)sectiontitles;
+
 - (void)setSelectedSegmentIndex:(NSUInteger)index animated:(BOOL)animated;
 - (void)setIndexChangeBlock:(IndexChangeBlock)indexChangeBlock;
 - (void)setTitleFormatter:(HMTitleFormatterBlock)titleFormatter;
 
 @end
+
+NS_ASSUME_NONNULL_END
